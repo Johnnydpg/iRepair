@@ -10,7 +10,7 @@ function App() {
     setordem([...ordens, os]);
   }
   return (
-    <div className="min-h-screen font-[Manrope] bg-slate-100">
+    <div className="min-h-screen overflow-x-hidden font-[Manrope] bg-slate-100">
     <Header/>
     <FormOS cadastrar={adicionarPedido}/>
     <CardOS ordens = {ordens}/>
