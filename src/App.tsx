@@ -13,7 +13,7 @@ function App() {
     <div className="min-h-screen font-[Manrope] bg-slate-100">
     <Header/>
     <FormOS cadastrar={adicionarPedido}/>
-    <CardOS/>
+    <CardOS ordens = {ordens}/>
     </div>
   );
 }
