@@ -1,10 +1,16 @@
+import { BrowserRouter, Routes, Route } from 'react-router';
+import Dashboard from './Pages/Dashboard';
+import Clients from './Pages/Clients';
+import ServicesOrders from './Pages/ServicesOrders';
 function App() {
   return (
-    <div className="flex min-h-screen items-center justify-center">
-      <h1 className="text-4xl font-bold text-blue-600">
-        Tailwind funcionando!
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element = {<Dashboard/>}/>
+          <Route path='/Clients' element = {<Clients/>}/>
+          <Route path='/ServicesOrders' element = {<ServicesOrders/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
