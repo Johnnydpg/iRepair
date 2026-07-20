@@ -9,10 +9,10 @@ const Clients = () => {
         email: "",
     });
     
-    async function cadastrarClient(e: React.FormEvent) {
+    async function createNewClient(e: React.FormEvent) {
         e.preventDefault();
-        const novoCliente = await createClient(client);
-        setClients(prev => [...prev, novoCliente]);
+        const newclient = await createClient(client);
+        setClients(prev => [...prev, newclient]);
 
         setClient({
             name: "",
@@ -21,20 +21,20 @@ const Clients = () => {
     });
     }
     useEffect(()=>{
-        async function renderizar(){
+        async function load(){
             const data = await getAllClients();
             setClients(data);
         }
-        renderizar();
+        load();
     }, [])
-    async function deletarCliente(id:number){
+    async function handlingDeleteClient(id:number){
         await deleteClient(id);
         setClients(prev=>prev.filter(c=>c.id!==id))
     }
     return(
         <main >
             <h1 className="translate-x-140 -translate-y-57 bg-sky-600 w-70 h-20 rounded-md border border-gray-400 shadow-lg text-white text-4xl flex items-center justify-center">Clientes</h1>
-            <form onSubmit={cadastrarClient}
+            <form onSubmit={createNewClient}
             className="-translate-y-53 translate-x-90 bg-white shadow-lg border border-slate-200 rounded-xl w-90 h-100">
             <label htmlFor="Formulário">
                 <h1 className="text-4xl font-bold translate-y-10 translate-x-24">Formulário</h1>
@@ -78,7 +78,7 @@ const Clients = () => {
                         <p className="translate-y-5 translate-x-5">Nome: {client.name}</p>
                         <p className="translate-y-5 translate-x-5">Telefone: {client.phone}</p>
                         <p className="translate-y-5 translate-x-5">Email:{client.email}</p>
-                        <button onClick={()=>deletarCliente(client.id)}
+                        <button onClick={()=>handlingDeleteClient(client.id)}
                         className="bg-red-600 rounded-xl translate-y-5 translate-x-5">DELETAR</button>
                     </li>
                 ))}
