@@ -3,6 +3,10 @@ import Dashboard from './Pages/Dashboard';
 import Clients from './Pages/Clients';
 import ServicesOrders from './Pages/ServicesOrders';
 function App() {
+  const[ordens, setordem] = useState<User[]>([]);
+  function adicionarPedido(os:User){
+    setordem([...ordens, os]);
+  }
   return (
     <BrowserRouter>
       <Routes>
