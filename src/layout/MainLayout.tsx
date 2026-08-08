@@ -12,7 +12,7 @@ const MainLayout = () =>{
             <Link to="/Clients" className="translate-y-5 flex items-center justify-center bg-indigo-700 rounded-md border border-gray-400 shadow-lg h-10 w-36"> Clientes </Link>
             <Link to="/ServicesOrders"className="translate-y-8 flex items-center justify-center bg-emerald-600 rounded-md border border-gray-400 shadow-lg h-15 w-36"> Ordens de   Serviços</Link>
         </aside>
-        <main className="translate-x-140 -translate-y-51 bg-sky-600 w-70 h-20 rounded-md border border-gray-400 shadow-lg text-white text-4xl flex items-center justify-center">
+        <main>
             <Outlet/>
         </main>
         </div>
