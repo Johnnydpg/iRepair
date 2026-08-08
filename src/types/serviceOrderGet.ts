@@ -1,4 +1,4 @@
-export interface Pedido{
+export interface ServiceOrder{
     id: number;
     client_id: number;
     device: string;
