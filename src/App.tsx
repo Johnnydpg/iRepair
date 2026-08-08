@@ -1,6 +1,6 @@
-import Header from "./components/header";
-import FormOS from "./components/formOS";
-import CardOS from "./components/cardOS";
+import Header from "./components/Header";
+import FormOS from "./components/FormOS";
+import CardOS from "./components/CardOS";
 function App() {
   return (
     <div className="flex min-h-screen items-center justify-center">
