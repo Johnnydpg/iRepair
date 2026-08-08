@@ -1,20 +1,20 @@
-import "./index.css";
-import Header from "./components/Header";
-import FormOS from "./components/FormOS";
-import CardOS from "./components/CardOS";
-import type { User } from "./components/FormOS";
-import { useState } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router';
+import Dashboard from './Pages/Dashboard';
+import Clients from './Pages/Clients';
+import ServicesOrders from './Pages/ServicesOrders';
 function App() {
   const[ordens, setordem] = useState<User[]>([]);
   function adicionarPedido(os:User){
     setordem([...ordens, os]);
   }
   return (
-    <div className="min-h-screen overflow-x-hidden font-[Manrope] bg-slate-100">
-    <Header/>
-    <FormOS cadastrar={adicionarPedido}/>
-    <CardOS ordens = {ordens}/>
-    </div>
+    <BrowserRouter>
+      <Routes>
+          <Route path='/' element = {<Dashboard/>}/>
+          <Route path='/Clients' element = {<Clients/>}/>
+          <Route path='/ServicesOrders' element = {<ServicesOrders/>}/>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
