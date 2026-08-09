@@ -4,10 +4,6 @@ import Clients from './Pages/Clients';
 import ServicesOrders from './Pages/ServicesOrders';
 import MainLayout from './layout/MainLayout';
 function App() {
-  const[ordens, setordem] = useState<User[]>([]);
-  function adicionarPedido(os:User){
-    setordem([...ordens, os]);
-  }
   return (
     <BrowserRouter>
       <Routes>
