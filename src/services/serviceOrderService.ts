@@ -2,13 +2,30 @@ import { api } from "./api";
 import type { ServiceOrder, createServiceOrderData } from "../types";
 
 export async function getAllServiceOrder(): Promise<ServiceOrder[]>{
-    const response = await api.get<ServiceOrder[]>('/service-orders')
-    return response.data;
+    try{
+        const response = await api.get<ServiceOrder[]>('/service-orders')
+        return response.data;
+    }
+    catch(error){
+        console.error("Erro na API:", error);
+        throw error;
+    }
 }
 export async function createServiceOrder(data:createServiceOrderData): Promise<ServiceOrder>{
-    const response = await api.post<ServiceOrder>('/service-orders', data);
-    return response.data;
+    try{
+        const response = await api.post<ServiceOrder>('/service-orders', data);
+        return response.data;
+    }
+    catch(error){
+        console.error("Erro na API:", error)
+        throw error;
+    }
 }
 export async function deleteServiceOrder(id:number): Promise<void>{
-    await api.delete(`/service-orders/${id}`);
+    try{
+        await api.delete(`/service-orders/${id}`);
+    }
+    catch(error){
+        console.error("Erro na API:", error);
+    }
 }
