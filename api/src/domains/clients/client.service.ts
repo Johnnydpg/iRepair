@@ -9,6 +9,12 @@ class clientService{
         if(data.name.trim() === ""){
             throw new Error("É necessário um nome não vazio");
         }
+        if(data.phone.trim() === ""){
+            throw new Error("É necessário um nome não vazio");
+        }
+        if(data.email.trim() === ""){
+            throw new Error("É necessário um nome não vazio");
+        }
         return prisma.client.create({data,});
     }
     async getAll(){
