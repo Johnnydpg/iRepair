@@ -7,5 +7,6 @@ const controller = new authController();
 authRoutes.post('/register', controller.register.bind(controller));
 authRoutes.post('/login', controller.login.bind(controller));
 authRoutes.post('/logout', controller.logout.bind(controller));
+authRoutes.get('/me', controller.me.bind(controller))
 
 export {authRoutes}
