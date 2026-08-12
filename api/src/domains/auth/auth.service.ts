@@ -21,7 +21,7 @@ class authService{
             throw new Apperror("Email ou senha incorretos!", 401);
         }
         const correctPassword = await bcrypt.compare(password, user.password);
-        if(!password){
+        if(!correctPassword){
             throw new Apperror("Email ou senha incorretos!", 401);
         }
         const token = generateToken({id:user.id, email: user.email});
