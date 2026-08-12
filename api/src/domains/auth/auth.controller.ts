@@ -26,4 +26,5 @@ class authController{
         return res.status(200).json({message: 'Logout realizado com sucesso!'});
     }
 }
+export {authController}
 
