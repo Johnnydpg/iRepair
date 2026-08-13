@@ -1,0 +1,30 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+model  Client {
+  id        Int      @id @default(autoincrement())
+  name     String
+  phone    String
+  email    String
+  createdAt DateTime @default(now())
+  orders Order[]
+}
+model Order{
+  id        Int      @id @default(autoincrement())
+  client_id Int
+  device   String
+  issue    String
+  status   String
+  createdAt DateTime @default(now())
+  client    Client @relation(fields:[client_id], references:[id])
+}
+model User{
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  password  String
+}
