@@ -13,7 +13,7 @@ app.use(cors({
 }))
 app.use(express.json());
 app.use('/clients', clientRoutes);
-app.use('/orders', orderRoutes);
+app.use('/service-orders', orderRoutes);
 app.use('/auth', authRoutes);
 
 export {app}

@@ -20,6 +20,10 @@ class authService{
         if(!user){
             throw new Apperror("Email ou senha incorretos!", 401);
         }
+        console.log("PASSWORD RECEBIDO:", password);
+        console.log("USER:", user);
+        console.log("PASSWORD DO USER:", user.password);
+
         const correctPassword = await bcrypt.compare(password, user.password);
         if(!correctPassword){
             throw new Apperror("Email ou senha incorretos!", 401);

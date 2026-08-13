@@ -17,15 +17,15 @@ class clientController{
     }
     async getAll(req: Request, res: Response){
         try{
-            const service = new clientService;
-            const client = service.getAll();
+            const service = new clientService();
+            const client = await service.getAll();
             return res.status(200).json(client);
         }
         catch(error){
             if(error instanceof Error){
                 return res.status(400).json({erro: error.message});
             }
-            return res.status(500).json({erro:"Erro desconhecido"});
+            return res.status(500).json({erro: "Erro desconhecido"});
         }
     }
     async delete(req: Request, res: Response){

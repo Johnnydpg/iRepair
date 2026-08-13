@@ -7,7 +7,7 @@ const ServicesOrders = () =>{
     const [clients, setClients] = useState<Client[]>([]);
     const[sords, setSords] = useState<ServiceOrder[]>([]);
     const[sord, setSord] = useState<createServiceOrderData>({
-        clientId: 0,
+        client_id: 0,
         device:"",
         issue:"",
         status:"",
@@ -20,7 +20,7 @@ const ServicesOrders = () =>{
         setSords(prev =>[...prev, newServiceOrder]);
 
         setSord({
-            clientId: 0,
+            client_id: 0,
             device: "",
             issue:"",
             status:"",
@@ -61,13 +61,13 @@ const ServicesOrders = () =>{
                 </label>
                     <select 
                     className="border border-black bg-white text-black w-55 h-6 text-base"
-                    value={sord.clientId}
+                    value={sord.client_id}
                     onChange={(e) => {
                         console.log("Selecionado:", e.target.value);
 
 
                         setSord({
-                        ...sord, clientId:Number(e.target.value)
+                        ...sord, client_id:Number(e.target.value)
                     })}}>
                         <option value={0}>Selecionar cliente</option>
                         {clients.map((client:Client) => (

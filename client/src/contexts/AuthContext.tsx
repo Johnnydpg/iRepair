@@ -24,8 +24,8 @@ export function AuthProvider({children}: {children : ReactNode}){
       .catch(() => setUser(null))
       .finally(() => setIsLoading(false))
   }, [])
-  async function login(email: string, senha: string) {
-    const response = await api.post('/auth/login', { email, senha })
+  async function login(email: string, password: string) {
+    const response = await api.post('/auth/login', { email, password })
     setUser(response.data.user);
   }
     async function logout() {

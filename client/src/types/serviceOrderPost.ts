@@ -1,5 +1,5 @@
 export interface createServiceOrderData {
-    clientId: number;
+    client_id: number;
     device: string;
     issue: string;
     status: string;
