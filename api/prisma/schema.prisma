@@ -6,25 +6,30 @@ generator client {
 datasource db {
   provider = "mysql"
 }
-model  Client {
+
+model client {
   id        Int      @id @default(autoincrement())
-  name     String
-  phone    String
-  email    String
+  name      String
+  phone     String
+  email     String
   createdAt DateTime @default(now())
-  orders Order[]
+  order     order[]
 }
-model Order{
+
+model order {
   id        Int      @id @default(autoincrement())
   client_id Int
-  device   String
-  issue    String
-  status   String
+  device    String
+  issue     String
+  status    String
   createdAt DateTime @default(now())
-  client    Client @relation(fields:[client_id], references:[id])
+  client    client   @relation(fields: [client_id], references: [id], map: "Order_client_id_fkey")
+
+  @@index([client_id], map: "Order_client_id_fkey")
 }
-model User{
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
+
+model user {
+  id       Int    @id @default(autoincrement())
+  email    String @unique(map: "User_email_key")
+  password String
 }
