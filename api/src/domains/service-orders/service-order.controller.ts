@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/client";
-import { serviceOrderService } from "./service-order.service";
+import { serviceOrderService } from "./service-order.service.js";
 
 class serviceOrderController{
     async create(req: Request, res: Response){

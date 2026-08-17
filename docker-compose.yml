@@ -8,7 +8,7 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     ports:
-      -"3306:3306"
+      - "3306:3306"
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
       interval: 10s
@@ -22,18 +22,19 @@ services:
     environment:
       DATABASE_URL: mysql://root:${MYSQL_ROOT_PASSWORD}@db:3306/${MYSQL_DATABASE}
       JWT_SECRET: ${JWT_SECRET}
+      JWT_EXPIRES_IN: ${JWT_EXPIRES_IN}
       PORT: 3030
     ports:
-      -"3030:3030"
+      - "3030:3030"
     command: sh -c "npx prisma migrate deploy && node dist/index.js"
   client:
     build:
       context: ./client
-      dockerfiles: Dockerfile
+      dockerfile: Dockerfile
     restart: unless-stopped
     depends_on:
-      -api
+      - api
     ports:
-      -"8080:80"
-    volumes:
-      mysql_data:
+      - "8080:80"
+volumes:
+  mysql_data:

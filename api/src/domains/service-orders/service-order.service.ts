@@ -1,4 +1,4 @@
-import { prisma } from "../../config/prismaClients";
+import { prisma } from "../../config/prismaClients.js"
 interface createOrderDTO{
     client_id: number
     device: string
