@@ -1,4 +1,4 @@
-import { prisma } from "../../config/prismaClients";
+import { prisma } from "../../config/prismaClients.js"
 interface createClientDTO{
     name: string
     phone: string

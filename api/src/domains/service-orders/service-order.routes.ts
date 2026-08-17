@@ -1,6 +1,6 @@
 import { Router } from "express";
-import { serviceOrderController } from "./service-order.controller";
-import { authMiddleware } from "../../middlewares/authMiddleware";
+import { serviceOrderController } from "./service-order.controller.js";
+import { authMiddleware } from "../../middlewares/authMiddleware.js";
 
 const orderRoutes = Router();
 const controller = new serviceOrderController();

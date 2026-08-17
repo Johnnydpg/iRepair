@@ -1,5 +1,5 @@
-import {app} from "./config/expressConfig"
+import {app} from "./config/expressConfig.js"
 
-app.listen(3333, ()=>{
-    console.log(`Servidor rodando na porta 3333`);
+app.listen(3030, ()=>{
+    console.log(`Servidor rodando na porta 3030`);
 });

@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from "express";
-import { verifyTolken } from "../utils/tolken";
+import { verifyTolken } from "../utils/tolken.js";
 
 export function authMiddleware(req: Request, res: Response, next: NextFunction){
     const token = req.cookies?.token;

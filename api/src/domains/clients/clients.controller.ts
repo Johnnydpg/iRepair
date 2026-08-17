@@ -1,6 +1,6 @@
 import type { Request, Response } from "express";
 import { PrismaClientKnownRequestError } from "@prisma/client/runtime/client";
-import { clientService } from "./client.service";
+import { clientService } from "./client.service.js";
 class clientController{
     async create(req: Request, res: Response){
         try{
